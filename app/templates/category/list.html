@@ -13,9 +13,20 @@
       <td class="text-center">{{forloop.counter}}</td>
       <td class="text-center">{{categ.code}}</td>
       <td>{{categ.name}}</td>
-      <td></td>
+      <td>
+        <a href="/edit_category/{{categ.id}}">Chỉnh sửa</a>
+        <a href="javascript:deleteItem({{categ.id}})">Xóa</a>
+      </td>
     </tr>
     {%endfor%}
   </tbody>  
 </table>
-<a href="/add_category">Thêm nhóm sản phẩm</a>
+<a href="{% url 'add-category' %}">Thêm nhóm sản phẩm</a>
+
+<script>
+  function deleteItem(id) {
+    if(confirm('Bạn có muốn xóa')) {
+      location.href = '/delete_category/' + id;
+    }
+  }
+</script>

@@ -1,0 +1,32 @@
+<table class="table">
+    <thead>
+      <tr class="text-center">
+        <th style="width: 10%;">STT</th>
+        <th style="width: 35%;">Mã</th>
+        <th style="width: 40%;">Tên</th>
+        <th style="width: 15%;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for prod in productList %}
+      <tr>
+        <td class="text-center">{{forloop.counter}}</td>
+        <td class="text-center">{{prod.code}}</td>
+        <td>{{prod.name}}</td>
+        <td>
+          <a href="/edit_product/{{prod.id}}">Chỉnh sửa</a>
+          <a href="javascript:deleteItem({{prod.id}})">Xóa</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>  
+  </table>
+  <a href="{% url 'add-product' %}">Thêm sản phẩm</a>
+  
+  <script>
+    function deleteItem(id) {
+      if(confirm('Bạn có muốn xóa')) {
+        location.href = '/delete_product/' + id;
+      }
+    }
+  </script>
