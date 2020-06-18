@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr class="text-center">
+      <th style="width: 10%;">STT</th>
+      <th style="width: 35%;">Mã</th>
+      <th style="width: 40%;">Tên</th>
+      <th style="width: 15%;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for categ in categoryList %}
+    <tr>
+      <td class="text-center">{{forloop.counter}}</td>
+      <td class="text-center">{{categ.code}}</td>
+      <td>{{categ.name}}</td>
+      <td></td>
+    </tr>
+    {%endfor%}
+  </tbody>  
+</table>
+<a href="/add_category">Thêm nhóm sản phẩm</a>
