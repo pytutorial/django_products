@@ -40,7 +40,7 @@ def listProduct(request):
 def addProduct(request):
     form = ProductForm()
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('list-product')
@@ -50,7 +50,7 @@ def editProduct(request, pk):
     product = get_object_or_404(Product, pk=pk)
     form = ProductForm(instance=product)
     if request.method == 'POST':
-        form = ProductForm(request.POST, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
             return redirect('list-product')
