@@ -1,28 +1,30 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<table class="table">
-  <thead>
-    <tr class="text-center">
-      <th style="width: 10%;">STT</th>
-      <th style="width: 35%;">Mã</th>
-      <th style="width: 40%;">Tên</th>
-      <th style="width: 15%;"></th>
-    </tr>
-  </thead>
-  <tbody>
-    {%for categ in categoryList %}
-    <tr>
-      <td class="text-center">{{forloop.counter}}</td>
-      <td class="text-center">{{categ.code}}</td>
-      <td>{{categ.name}}</td>
-      <td>
-        <a class="btn btn-sm btn-secondary" href="/edit_category/{{categ.id}}">Chỉnh sửa</a>
-        <a class="btn btn-sm btn-danger" href="javascript:deleteItem({{categ.id}})">Xóa</a>
-      </td>
-    </tr>
-    {%endfor%}
-  </tbody>  
-</table>
-<a class="btn btn-primary" href="{% url 'add-category' %}">Thêm nhóm sản phẩm</a>
+<div class="container pt-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center" style="width: 10%;">STT</th>
+        <th class="text-center" style="width: 30%;">Mã</th>
+        <th style="width: 40%;">Tên</th>
+        <th class="text-center" style="width: 20%;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for categ in categoryList %}
+      <tr>
+        <td class="text-center">{{forloop.counter}}</td>
+        <td class="text-center">{{categ.code}}</td>
+        <td>{{categ.name}}</td>
+        <td>
+          <a class="btn btn-sm btn-secondary" href="/edit_category/{{categ.id}}">Chỉnh sửa</a>
+          <a class="btn btn-sm btn-danger" href="javascript:deleteItem({{categ.id}})">Xóa</a>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>  
+  </table>
+  <a class="btn btn-primary" href="{% url 'add-category' %}">Thêm nhóm sản phẩm</a>  
+</div>
 
 <script>
   function deleteItem(id) {
