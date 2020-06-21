@@ -59,4 +59,4 @@ def editProduct(request, pk):
 def deleteProduct(request, pk):    
     product = get_object_or_404(Product,pk=pk) 
     product.delete()
-    return redirect('list-productd')    
+    return redirect('list-product')    
