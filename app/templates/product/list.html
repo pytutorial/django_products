@@ -1,12 +1,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<table class="table">
+  
+<div class="container pt-3">
+  <table class="table">
     <thead>
-      <tr class="text-center">
-        <th style="width: 10%;">STT</th>
-        <th style="width: 25%;">Mã</th>
-        <th style="width: 20%;">Tên</th>
-        <th style="width: 30%;">Ảnh</th>
-        <th style="width: 15%;"></th>
+      <tr>
+        <th class="text-center" style="width: 10%;">STT</th>
+        <th class="text-center" style="width: 20%;">Mã</th>
+        <th  style="width: 20%;">Tên</th>
+        <th class="text-center" style="width: 30%;">Ảnh</th>
+        <th class="text-center" style="width: 20%;"></th>
       </tr>
     </thead>
     <tbody>
@@ -15,17 +17,17 @@
         <td class="text-center">{{forloop.counter}}</td>
         <td class="text-center">{{prod.code}}</td>
         <td>{{prod.name}}</td>
-        <td><img src='/{{prod.image}}' style="max-height: 200px;"></td>
+        <td class="text-center"><img src='/{{prod.image}}' style="max-height: 150px;"></td>
         <td>
-          <a href="/edit_product/{{prod.id}}">Chỉnh sửa</a>
-          <a href="javascript:deleteItem({{prod.id}})">Xóa</a>
+          <a class="btn btn-sm btn-secondary" href="/edit_product/{{prod.id}}">Chỉnh sửa</a>
+          <a class="btn btn-sm btn-danger" href="javascript:deleteItem({{prod.id}})">Xóa</a>
         </td>
       </tr>
       {%endfor%}
     </tbody>  
   </table>
-  <a href="{% url 'add-product' %}">Thêm sản phẩm</a>
-  
+  <a class="btn btn-primary" href="{% url 'add-product' %}">Thêm sản phẩm</a>
+</div>
   <script>
     function deleteItem(id) {
       if(confirm('Bạn có muốn xóa')) {
