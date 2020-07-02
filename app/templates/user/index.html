@@ -49,15 +49,14 @@
       <form class="col-3">
         <div class="mt-5">
           <label class='label-title'>Tên sản phẩm</label>
-          <input name="product_name" class="form-control" placeholder="Nhập tên sản phẩm">
+          <input value='{{productName}}' name="product_name" class="form-control" placeholder="Nhập tên sản phẩm">
         </div>
-
         <div class="mt-4">
           <label class='label-title'>Nhóm sản phẩm</label>
           <select name="category_id" class="form-control">
             <option value="">Tất cả</option>
             {%for c in categoryList %}
-            <option value="{{c.id}}">{{c.name}}</option>
+            <option {%if c.id == categoryId%}selected{%endif%} value="{{c.id}}">{{c.name}}</option>
             {%endfor%}
           </select>
         </div>
@@ -66,10 +65,10 @@
           <label class='label-title'>Mức giá</label>
           <select name="price_range" class="form-control">
             <option value="">Tất cả</option>
-            <option value="1">Dưới 10 triệu</option>
-            <option value="2">Từ 10 đến 15 triệu</option>
-            <option value="3">Từ 15 đến 20 triệu</option>
-            <option value="4">Trên 20 triệu</option>
+            <option {%if priceRange == 1%}selected{%endif%} value="1">Dưới 10 triệu</option>
+            <option {%if priceRange == 2%}selected{%endif%} value="2">Từ 10 đến 15 triệu</option>
+            <option {%if priceRange == 3%}selected{%endif%} value="3">Từ 15 đến 20 triệu</option>
+            <option {%if priceRange == 4%}selected{%endif%} value="4">Trên 20 triệu</option>
           </select>
         </div>
 

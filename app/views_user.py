@@ -16,9 +16,9 @@ def findProducts(productName, categoryId, priceRange):
     if productName != '':
         productList = productList.filter(name__contains=productName)
     if minPrice != None:
-        productList = productList.filter(price__gte=minPrice)
+        productList = productList.filter(price__gte=minPrice*1e6)
     if maxPrice:
-        productList = productList.filter(price__lte=maxPrice)
+        productList = productList.filter(price__lte=maxPrice*1e6)
     if categoryId:
         productList = productList.filter(category__id=categoryId)
     return productList
@@ -30,11 +30,14 @@ def index(request):
     priceRange = request.GET.get('price_range', '')
     priceRange = int(priceRange) if priceRange != '' else 0
 
-    productList = Product.objects.all()
+    productList = findProducts(productName, categoryId, priceRange)
     categoryList = Category.objects.all()
     context = {
         'categoryList': categoryList,
-        'productList': productList
+        'productList': productList,
+        'productName': productName,
+        'categoryId': categoryId,
+        'priceRange': priceRange
     }
     return render(request, 'user/index.html',
                     context)
