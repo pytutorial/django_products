@@ -3,6 +3,8 @@ from .views import *
 from .views_user import *
 urlpatterns = [
     path('', index, name='home'),
+    path('view_product/<pk>', viewProduct),
+    
     path('signup', signup, name='signup'),
     path('staff', listCategory, name='list-category'),
     path('add_category', addCategory, name='add-category'),
