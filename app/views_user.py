@@ -4,6 +4,12 @@ from .models import *
 from .forms import *
 
 def index(request):
+    productName = request.GET.get('product_name', '')
+    categoryId = request.GET.get('category_id', '')
+    categoryId = int(categoryId) if categoryId != '' else 0
+    priceRange = request.GET.get('price_range', '')
+    priceRange = int(priceRange) if priceRange != '' else 0
+
     productList = Product.objects.all()
     categoryList = Category.objects.all()
     context = {
