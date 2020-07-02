@@ -2,10 +2,10 @@
 <div class="navbar navbar-expand-lg navbar-dark bg-dark">
   {%block navbar %}
   <div class="navbar-nav">
-    <a href="{%url 'list-category' %}" class="nav-item nav-link">
+    <a class="nav-item nav-link {%if page == 1%}active{%endif%}" href="{%url 'list-category' %}">
       Quản lý nhóm sản phẩm
     </a>
-    <a href="{%url 'list-product' %}" class="nav-item nav-link">
+    <a class="nav-item nav-link {%if page == 2%}active{%endif%}" href="{%url 'list-product' %}">
       Quản lý sản phẩm
     </a>
   </div>
