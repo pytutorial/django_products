@@ -24,7 +24,7 @@ def signup(request):
 @login_required
 def listCategory(request):
     categoryList = Category.objects.all()
-    return render(request, 'category/list.html', {'categoryList': categoryList})
+    return render(request, 'staff/category/list.html', {'categoryList': categoryList})
 
 @login_required
 def addCategory(request):
@@ -34,7 +34,7 @@ def addCategory(request):
         if form.is_valid():
             form.save()
             return redirect('list-category')
-    return render(request, 'category/form.html', {'form': form})
+    return render(request, 'staff/category/form.html', {'form': form})
 
 @login_required
 def editCategory(request, pk):
@@ -45,7 +45,7 @@ def editCategory(request, pk):
         if form.is_valid():
             form.save()
             return redirect('list-category')
-    return render(request, 'category/form.html', {'form': form})
+    return render(request, 'staff/category/form.html', {'form': form})
 
 @login_required
 def deleteCategory(request, pk):    
@@ -56,7 +56,7 @@ def deleteCategory(request, pk):
 @login_required
 def listProduct(request):
     productList = Product.objects.all()
-    return render(request, 'product/list.html', {'productList': productList})
+    return render(request, 'staff/product/list.html', {'productList': productList})
 
 @login_required
 def addProduct(request):
@@ -66,7 +66,7 @@ def addProduct(request):
         if form.is_valid():
             form.save()
             return redirect('list-product')
-    return render(request, 'product/form.html', {'form': form})
+    return render(request, 'staff/product/form.html', {'form': form})
 
 @login_required
 def editProduct(request, pk):
@@ -77,7 +77,7 @@ def editProduct(request, pk):
         if form.is_valid():
             form.save()
             return redirect('list-product')
-    return render(request, 'product/form.html', {'form': form})
+    return render(request, 'staff/product/form.html', {'form': form})
 
 @login_required
 def deleteProduct(request, pk):    
