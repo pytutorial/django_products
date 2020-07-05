@@ -49,5 +49,6 @@ def viewProduct(request, pk):
 
 def purchase(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    context = {'product' : product}
+    form = PurchaseForm()
+    context = {'product' : product, 'form': form}
     return render(request, 'user/purchase.html', context)                 

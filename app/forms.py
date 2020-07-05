@@ -12,7 +12,7 @@ class ProductForm(forms.ModelForm):
         fields = '__all__'        
 
 class PurchaseForm(forms.Form):
-    fullname = forms.CharField(max_length=100)
-    phone = forms.CharField(max_length=30)
-    address = forms.CharField(max_length=300)
+    fullname = forms.CharField(max_length=100, label='Họ và tên')
+    phone = forms.CharField(max_length=30, label='Số điện thoại')
+    address = forms.CharField(max_length=300, label='Địa chỉ')
             

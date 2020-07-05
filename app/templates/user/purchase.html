@@ -29,19 +29,14 @@
           <h5>Thông tin người mua hàng</h4>
         </th>
       </tr>
-      <tr>
-		<th>Họ và tên:</th>
-		<td><input class="form-control"></td>
-	  </tr>
-	  <tr>
-		<th>Số điện thoại:</th>
-		<td><input class="form-control"></td>
-	  </tr>
-	  <tr>
-		<th>Địa chỉ:</th>
-		<td><input class="form-control"></td>
-	  </tr>
+      {{form}}
     </table>
     <a href='purchase_confirmation.html' class="btn btn-primary">Tiếp tục</a>
   </form>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+  $('.table-form input').addClass('form-control');
+});
+</script>
