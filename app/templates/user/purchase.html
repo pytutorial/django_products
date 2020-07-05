@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/main.css">
+
+<div class='container pt-3'>
+  <form method="POST" novalidate>
+    <h4>Đặt mua hàng trực tuyến</h4>
+    <table class="table table-form">
+      <tr>
+        <th colspan="2">
+          <h5>Thông tin sản phẩm</h4>
+        </th>
+      </tr>
+      <tr>
+        <th>Sản phẩm:</th>
+        <td>
+          <img src="/{{product.image}}" style="max-height: 100px;">
+          <br>
+          <span>{{product.name}}</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Giá:</th>
+        <td>{{product.price}} ₫</td>
+      </tr>
+
+      <tr>
+        <th colspan="2">
+          <h5>Thông tin người mua hàng</h4>
+        </th>
+      </tr>
+      <tr>
+		<th>Họ và tên:</th>
+		<td><input class="form-control"></td>
+	  </tr>
+	  <tr>
+		<th>Số điện thoại:</th>
+		<td><input class="form-control"></td>
+	  </tr>
+	  <tr>
+		<th>Địa chỉ:</th>
+		<td><input class="form-control"></td>
+	  </tr>
+    </table>
+    <a href='purchase_confirmation.html' class="btn btn-primary">Tiếp tục</a>
+  </form>
+</div>

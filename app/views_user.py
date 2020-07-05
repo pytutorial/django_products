@@ -45,4 +45,9 @@ def index(request):
 def viewProduct(request, pk):
     product = get_object_or_404(Product, pk=pk)
     context = {'product': product}
-    return render(request, 'user/product.html', context)                    
+    return render(request, 'user/product.html', context)       
+
+def purchase(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    context = {'product' : product}
+    return render(request, 'user/purchase.html', context)                 
