@@ -16,3 +16,16 @@ class Product(models.Model):
     description = models.CharField(max_length=300, verbose_name="Mô tả", blank=True)
     image = models.ImageField(upload_to='static/images', blank=True,
                             null=True, verbose_name="Ảnh")
+
+class Order(models.Model):
+    class Status:
+        PENDING = 0
+        DELIVERED = 1
+        CANCELED = 2
+    fullname = models.CharField(max_length=100)
+    phone = models.CharField(max_length=30)
+    address = models.CharField(max_length=300)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    orderDate = models.DateTimeField()
+    deliverDate = models.DateTimeField(null=True)
+    status = models.IntegerField()

@@ -5,6 +5,8 @@ urlpatterns = [
     path('', index, name='home'),
     path('view_product/<pk>', viewProduct),
     path('purchase/<pk>', purchase),
+    path('purchase_confirm/<pk>', purchaseConfirm, name='purchase-confirm'),
+    path('thank_you', thankYou, name='thank-you'),
     
     path('signup', signup, name='signup'),
     path('staff', listCategory, name='list-category'),

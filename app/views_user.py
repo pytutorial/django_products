@@ -59,3 +59,14 @@ def purchase(request, pk):
 
     context = {'product' : product, 'form': form}
     return render(request, 'user/purchase.html', context)                 
+
+def purchaseConfirm(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        #TODO: lưu order
+        return redirect('thank-you')
+    context = {'product': product}
+    return render(request, 'user/purchase_confirm.html', context)    
+
+def thankYou(request):
+    return render(request, 'user/thank_you.html')    
