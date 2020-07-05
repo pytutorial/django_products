@@ -62,8 +62,16 @@ def purchase(request, pk):
 
 def purchaseConfirm(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    if request.method == 'POST':
-        #TODO: lưu order
+    if request.method == 'POST':        
+        purchase_form = request.session['purchase_form']
+        order = Order()
+        order.fullname = purchase_form['fullname']
+        order.phone = purchase_form['phone']
+        order.address = purchase_form['address']
+        order.product = product
+        order.orderDate = datetime.now()
+        order.status = Order.Status.PENDING
+        order.save()
         return redirect('thank-you')
     context = {'product': product}
     return render(request, 'user/purchase_confirm.html', context)    
