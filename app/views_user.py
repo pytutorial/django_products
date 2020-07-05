@@ -50,5 +50,12 @@ def viewProduct(request, pk):
 def purchase(request, pk):
     product = get_object_or_404(Product, pk=pk)
     form = PurchaseForm()
+   
+    if request.method == 'POST':
+        form = PurchaseForm(request.POST)
+        if form.is_valid():
+            request.session['purchase_form'] = form.cleaned_data
+            return redirect('purchase-confirm', pk)
+
     context = {'product' : product, 'form': form}
     return render(request, 'user/purchase.html', context)                 
